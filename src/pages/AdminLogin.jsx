@@ -10,18 +10,21 @@ export default function AdminLogin() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("http://localhost:5000/api/admin/login", {
+      const response = await axios.post("http://localhost:5000/api/admin/login", {
         email,
         password,
       });
-
-      localStorage.setItem("adminToken", data.token);
+  
+      // Correctly access response.data.token
+      localStorage.setItem("adminToken", response.data.token);
       localStorage.setItem("isAdmin", "true");
       navigate("/dashboard");
     } catch (err) {
-      alert("Login failed: " + err.response.data.message);
+      console.error("Login error:", err);
+      alert("Login failed: " + (err.response?.data?.message || "Unknown error"));
     }
   };
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">

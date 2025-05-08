@@ -9,7 +9,7 @@ export default function Sidebar() {
   };
 
   return (
-    <aside className="w-64 bg-gray-800 text-white h-screen p-4 flex flex-col">
+    <aside className="w-64 bg-gray-800 text-white h-screen p-4 flex flex-col fixed top-0 left-0">
       <h2 className="text-xl font-bold mb-8 mt-4 px-4">Admin Dashboard</h2>
       <nav className="flex flex-col gap-1 flex-1">
         <Link 
