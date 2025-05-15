@@ -9,7 +9,11 @@ import ManagePartners from "./pages/ManagePartners";
 import AdminNavbar from "./components/AdminNavbar";
 import Sidebar from "./components/Sidebar";
 import AdminLogin from "./pages/AdminLogin";
-
+import AdminVerifyPartners from "./pages/AdminVerifyPartners";
+import PartnerDocuments from "./pages/PartnerDocuments";
+import PartenrsOrders from "./pages/PartenrsOrders";
+import PartnersEarning from "./pages/PartnersEarning";
+import PartnersHome from "./pages/PartnersHome";
 function ProtectedRoute({ children }) {
   const isAdmin = localStorage.getItem("isAdmin");
   return isAdmin ? children : <Navigate to="/admin-login" />;
@@ -36,6 +40,11 @@ export default function App() {
                     <Route path="providers" element={<ManagePartners />} />
                     <Route path="users" element={<ManageUsers />} />
                     <Route path="add-service" element={<AddService />} />
+                    <Route path="/admin/register-partners" element={<AdminVerifyPartners />} />
+                    <Route path="/admin/partner-documents" element={< PartnerDocuments/>} />
+                    <Route path="/admin/partner-orders" element={< PartenrsOrders/>} />
+                    <Route path="/admin/partner-Earning" element={< PartnersEarning/>} />
+                    <Route path="/admin/partner-Home" element={< PartnersHome/>} />
                   </Routes>
                 </div>
               </div>
